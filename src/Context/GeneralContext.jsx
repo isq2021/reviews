@@ -1,16 +1,7 @@
-import { createContext, useState, useEffect, useReducer } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 export const GeneralContext = createContext([]);
-
-/* const surprizeMe = (state, action) => {
-  switch (action) {
-    case "randomizeUser":
-      return getDataNahren();
-    default:
-      return state;
-  }
-}; */
 
 export const Generalprovider = ({ children }) => {
   const [allReviews, setAllReviews] = useState([]);
@@ -32,7 +23,6 @@ export const Generalprovider = ({ children }) => {
 
   const data = {
     allReviews: allReviews,
-    setAllReviews: setAllReviews,
 
     getData: getData,
   };

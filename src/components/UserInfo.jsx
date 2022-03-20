@@ -9,15 +9,12 @@ import {
   Divider,
 } from "@mui/material";
 import React from "react";
-import { useContext, useReducer } from "react";
-import { Reducer } from "../Helper/Reducer";
+import { useContext } from "react";
 
 import { GeneralContext } from "../Context/GeneralContext";
-const initialState = [];
 
 function UserInfo() {
-  const { allReviews } = useContext(GeneralContext);
-  const [state, dispatch] = useReducer(Reducer, initialState);
+  const { allReviews, getData } = useContext(GeneralContext);
 
   return (
     <>
@@ -46,11 +43,11 @@ function UserInfo() {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <ArrowBackIos />
-        <ArrowForwardIos />
+        <ArrowBackIos onClick={() => getData()} />
+        <ArrowForwardIos onClick={() => getData()} />
         <Divider />
 
-        <Button onClick={() => dispatch("randomizeUser")}>Surprize me</Button>
+        <Button onClick={() => getData()}>Surprize me</Button>
       </Card>
     </>
   );
