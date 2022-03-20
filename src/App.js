@@ -1,12 +1,13 @@
 import "./App.css";
 
-import { useContext } from "react";
-import { GeneralContext } from "./Context/GeneralContext";
+import UserInfo from "./components/UserInfo";
 
 function App() {
-  const { allReviews } = useContext(GeneralContext);
-  console.log(allReviews);
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <UserInfo />
+    </div>
+  );
 }
 
 export default App;

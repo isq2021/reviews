@@ -10,8 +10,8 @@ export const Generalprovider = ({ children }) => {
   const getData = async () => {
     try {
       const req = await axios.get(URL);
-      console.log(req);
-      setAllReviews(req.data);
+
+      setAllReviews(req.data.results);
     } catch (error) {
       console.log(error);
     }
@@ -22,6 +22,7 @@ export const Generalprovider = ({ children }) => {
 
   const data = {
     allReviews: allReviews,
+    setAllReviews: setAllReviews,
   };
   return (
     <GeneralContext.Provider value={data}>{children}</GeneralContext.Provider>
