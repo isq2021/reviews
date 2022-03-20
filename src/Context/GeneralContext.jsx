@@ -1,10 +1,20 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useReducer } from "react";
 import axios from "axios";
 
 export const GeneralContext = createContext([]);
 
+/* const surprizeMe = (state, action) => {
+  switch (action) {
+    case "randomizeUser":
+      return getDataNahren();
+    default:
+      return state;
+  }
+}; */
+
 export const Generalprovider = ({ children }) => {
   const [allReviews, setAllReviews] = useState([]);
+
   const URL = "https://randomuser.me/api/?gender=female";
 
   const getData = async () => {
@@ -23,6 +33,8 @@ export const Generalprovider = ({ children }) => {
   const data = {
     allReviews: allReviews,
     setAllReviews: setAllReviews,
+
+    getData: getData,
   };
   return (
     <GeneralContext.Provider value={data}>{children}</GeneralContext.Provider>
